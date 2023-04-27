@@ -68,8 +68,20 @@ function Wordle() {
                 }
             })
             console.log("palabras: ", palabrasArr);
-            // setSolucion(palabrasArr[Math.floor(Math.random()*palabrasArr.length)].toUpperCase());
+            //solución seteada a "TIGRE". Si queremos que sea aleatoria, comentar la siguiente línea y descomentar la anterior.
+
+                // ------ solución aleatoria:
+
+            //setSolucion(palabrasArr[Math.floor(Math.random()*palabrasArr.length)].toUpperCase());
+            
+                // ------ solución no aleatoria para probar:
             setSolucion("TIGRE");
+
+                /* ------ OJO!!! 
+                
+                hasta que no consiga conectar con la API no estará disponible el array de palabras (la conexión es asíncrona y puede tardar un ratito).
+                para solucionar esto se puede definir un estado (loading) que inicialmente sea true, y cuando recibamos la respuesta de la API (línea 58) se setee a false. En el return, tendríamos que hacer un render condicional a este valor: si loading es true mostraría un mensaje de "cargando" (o un spin, por ejemplo), y si es false ya mostraría todo el contenido del componente para empezar a jugar. */
+
             setTodasPalabras(palabrasArr);
         })
     }
